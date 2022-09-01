@@ -22,10 +22,10 @@ module.exports = {
       },
       roleID: {
         type: Sequelize.INTEGER,
-            references: {
-            model: 'roles',
-                key: 'id'
-        }
+          references: {
+          model: 'roles',
+              key: 'id'
+          }
       },
       isPublished: {
         type: Sequelize.BOOLEAN

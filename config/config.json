@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": null,
-    "database": "blogWebsite",
-    "host": "127.0.0.1",
+    "username": "wnrvzuok",
+    "password": "ZzIV5y0UFpRFqw4qY6hKKtf5Slo7Rclj",
+    "database": "wnrvzuok",
+    "host": "jelani.db.elephantsql.com",
     "dialect": "postgres"
   }
 }

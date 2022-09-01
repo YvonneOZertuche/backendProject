@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const { pool } = require('./dbconfig')
 const bcrypt =('bcryptjs');
+const db = require('../models')
 
 const PORT = process.env.PORT || 3000
 

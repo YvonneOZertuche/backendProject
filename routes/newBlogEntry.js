@@ -34,4 +34,5 @@ router.post('/newBlogEntry', async (req, res) => {
     res.redirect('/form');
 })
 
+
 module.exports = router;

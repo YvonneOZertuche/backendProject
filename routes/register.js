@@ -38,18 +38,24 @@ router.post('/register', async (req, res) => {
       //Form validation has passed - encrypt password
       password = bcrypt.hashSync(password,8)
       console.log(password)
-    } 
+    
     //create new record in db
 
     let insertRecord = await db.users.create({
+      username: name,
       email: email,
       password: password,
       // roleid: 1
+    
     })
+    }
     res.redirect('/login')  
 
   }catch (error) {
-    
+    console.log(error)
+    res.render('register', {
+      error: "This email is already been used."
+    })
   }
   
  

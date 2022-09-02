@@ -18,15 +18,15 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 //passport
-app.use(passport.initialize())
-app.use(passport.session)
+// app.use(passport.initialize())
+// app.use(passport.session)
 
 //cookieSession
-app.use(cookieSession({
-  name: 'session',
-  key: ['abcdeabcdeabcde'],
-  maxAge: 14 * 24 * 60 *60 * 1000
-}))
+// app.use(cookieSession({
+//   name: 'session',
+//   key: ['abcdeabcdeabcde'],
+//   maxAge: 14 * 24 * 60 *60 * 1000
+// }))
 
 //ROUTES
 app.use(require('./routes/newBlogEntry'))

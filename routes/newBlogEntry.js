@@ -29,9 +29,23 @@ router.post('/newBlogEntry', async (req, res) => {
     //use model.create to create a new row in the db table (see: https://dc-houston.herokuapp.com/p2/Postgres/Sequelize.html#21)
 
     //I'll need to add another variable when Yvonne is ready to reference the userID via cookies
+    console.log(db.blogs)
     await db.blogs.create({title:blogTitle, content:blogEntry})
     
+    
     res.redirect('/form');
+})
+
+//get route - to get all the blog posts
+router.get('/getBlogs', async (req, res) => {
+    try{
+        console.log(db.blogs)
+        let data = await db.blogs.findAll();
+        res.render("blogs", {data:data})
+    }
+    catch(error){
+        console.log(error)
+    }
 })
 
 

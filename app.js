@@ -34,10 +34,14 @@ app.use(require('./routes/index'))
 app.use(require('./routes/register'))
 app.use(require('./routes/login'))
 app.use(require('./routes/dashboard'))
+app.use(require('./routes/blogs'))
 
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
+
+
 
 

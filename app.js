@@ -73,6 +73,7 @@ app.post('/users/register', async (req,res) =>{
 
 //routes
 app.use(require('./routes/newBlogEntry'))
+app.use(require('./routes/blogs'))
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

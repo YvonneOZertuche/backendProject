@@ -41,7 +41,7 @@ router.get('/getBlogs', async (req, res) => {
     try{
         console.log(db.blogs)
         let data = await db.blogs.findAll();
-        res.json(data)
+        res.render("blogs", {data:data})
     }
     catch(error){
         console.log(error)

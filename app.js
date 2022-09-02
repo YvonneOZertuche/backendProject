@@ -1,27 +1,25 @@
 const express = require('express')
 const app = express()
+let PORT = 3000
 // const { pool } = require('./dbconfig')
-
 // const bcrypt =('bcryptjs');
 // require('dotenv').config
 
 const db = require('./models')
 
-const PORT = process.env.PORT || 3000
+// const PORT = process.env.PORT || 3000
+app.set('view engine', 'ejs')
 
 //scrapers
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 
-app.set('view engine', 'ejs')
-app.use(express.urlencoded({extended: false}))
+app.get('/', (req, res)=> {
+  res.render('index')
+})
 
-// app.get('/', (req, res)=> {
-//   res.render('index')
-// })
-
-app.use(require('./routes/index'))
+// app.use(require('./routes/index'))
 
 app.get('/users/register', (req, res) => { 
   res.render('register')
@@ -44,7 +42,7 @@ app.post('/users/register', async (req,res) =>{
     password2
   })
 
-
+})
 // //validation checks
 //   let errors =[]
 
@@ -78,4 +76,4 @@ app.use(require('./routes/newBlogEntry'))
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
-  })})
+  })

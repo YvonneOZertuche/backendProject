@@ -14,22 +14,19 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+app.use(require('./routes/newBlogEntry'))
+app.use(require('./routes/index'))
+app.use(require('./routes/register'))
+app.use(require('./routes/login'))
 
-app.get('/', (req, res)=> {
-  res.render('index')
-})
+//!ROUTES
 
-// app.use(require('./routes/index'))
 
-app.get('/users/register', (req, res) => { 
-  res.render('register')
-})
+// app.get('/users/login', (req, res) => {
+//   res.render('login')
+// })
 
-app.get('/users/login', (req, res) => {
-  res.render('login')
-})
-
-app.get('/users/dashboard', (req, res) => {
+app.get('/dashboard', (req, res) => {
   res.render('dashboard', {user: 'Buster'})
 })
 
@@ -43,7 +40,13 @@ app.post('/users/register', async (req,res) =>{
   })
 
 })
-// //validation checks
+
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+
+//~VALIDATION CHECKS
 //   let errors =[]
 
 //   if (!name || !email || !password || !password2){
@@ -61,19 +64,10 @@ app.post('/users/register', async (req,res) =>{
 //   if (errors.length > 0){
 //     res.render('register', {errors})
 //   }else{
-//     //Form validation has passed
-
-//   // let hashedPassword = await bcrypt.hashSync(password, 10)
-//   // console.log(hashedPassword)
-
-
-
+//~    FORM VALIDATION CHECKS HAVE PASSED
+//   let hashedPassword = await bcrypt.hashSync(password, 10)
+//    console.log(hashedPassword)
 //   }
 // })
 
 //routes
-app.use(require('./routes/newBlogEntry'))
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-  })

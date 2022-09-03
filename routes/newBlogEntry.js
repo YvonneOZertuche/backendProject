@@ -61,7 +61,7 @@ router.post('/blogEdit', async (req, res) => {
     let {blogID, blogTitle, blogEntry} = req.body 
     console.log(`${blogID}, ${blogTitle}, ${blogEntry}`)
     await db.blogs.update({title:blogTitle, content:blogEntry}, {where:{id:blogID}})
-    res.send("hello friend")
+    res.redirect('/blogs');
 })
 
 

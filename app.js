@@ -29,7 +29,7 @@ app.use(express.json())
 // }))
 
 //ROUTES
-app.use(require('./routes/newBlogEntry'))
+app.use(require('./routes/allBlogsCRUD'))
 app.use(require('./routes/index'))
 app.use(require('./routes/register'))
 app.use(require('./routes/login'))

@@ -53,7 +53,8 @@ router.get('/blogEdit/:id', async (req, res) => {
     let {id} = req.params
     console.log(id)
     let data = await db.blogs.findOne({where: {id:id}});
-    res.json(data);
+    // res.json(data);
+    res.render("blogEdit", {data: data})
 })
 
 

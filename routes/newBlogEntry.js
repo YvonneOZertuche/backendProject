@@ -48,5 +48,13 @@ router.get('/getBlogs', async (req, res) => {
     }
 })
 
+//blog edit route
+router.get('/blogEdit/:id', async (req, res) => {
+    let {id} = req.params
+    console.log(id)
+    let data = await db.blogs.findOne({where: {id:id}});
+    res.json(data);
+})
+
 
 module.exports = router;

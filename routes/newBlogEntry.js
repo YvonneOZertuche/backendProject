@@ -64,5 +64,13 @@ router.post('/blogEdit', async (req, res) => {
     res.redirect('/blogs');
 })
 
+//blog delete route
+router.post('/blogDelete', async (req, res) => {
+    let {blogID} = req.body 
+    console.log(blogID)
+    await db.blogs.destroy({where: {id:blogID}})
+    res.redirect('/blogs');
+})
+
 
 module.exports = router;

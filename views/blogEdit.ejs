@@ -33,9 +33,17 @@
                     </div>
                 </div>
                 <ul class="actions">
-                    <li><input type="submit" value="Send Message" class="primary" /></li>
+                    <li><input type="submit" value="Submit" class="primary" /></li>
                     <li><input type="reset" value="Clear" /></li>
                 </ul>
+            </form>
+            <form method="post" action="/blogDelete">
+                <ul class="actions">
+                    <li><input type="submit" value="Delete" class="primary" /></li>
+                    <input type="hidden" name="blogID" value="<%= data.id %>">
+                </ul>
+
+
             </form>
         </section>
         <section class="split">

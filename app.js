@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express()
-const helmet = require('helmet');
-const passport = require('passport');
+const helmet = require('helmet')
+const passport = require('passport')
 require('./auth/passport-config')(passport)
-const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session')
 // const { pool } = require('./dbconfig')
 // require('dotenv').config
 const PORT = process.env.PORT || 3000
 
 app.use(express.static('public'))
-app.use(helmet)
+app.use(helmet())
 app.set('view engine', 'ejs')
 
 //SCRAPERS
@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 //PASSPORT-MIDDLEWARE
-app.use(passport.initialize())
-app.use(passport.session)
+// app.use(passport.initialize())
+// app.use(passport.session)
 
 //COOKIE SESSION
 app.use(cookieSession({

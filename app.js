@@ -36,6 +36,7 @@ app.use(require('./routes/login'))
 app.use(require('./routes/dashboard'))
 app.use(require('./routes/blogs'))
 
+app.use(express.static('./public'))
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const helmet = require('helmet')
-const passport = require('passport')
-require('./auth/passport-config')(passport)
+// const passport = require('passport')
+// require('./auth/passport-config')(passport)
 const cookieSession = require('cookie-session')
 const { pool } = require('./dbconfig')
 require('dotenv').config

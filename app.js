@@ -29,13 +29,14 @@ app.use(express.json())
 // }))
 
 //ROUTES
-app.use(require('./routes/newBlogEntry'))
+app.use(require('./routes/allBlogsCRUD'))
 app.use(require('./routes/index'))
 app.use(require('./routes/register'))
 app.use(require('./routes/login'))
 app.use(require('./routes/dashboard'))
 app.use(require('./routes/blogs'))
 
+app.use(express.static('./public'))
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

@@ -1,3 +1,4 @@
+
 const LocalStrategy = require('passport-local')
 const bcrypt = require('bcryptjs')
 const db = require('../models')
@@ -62,3 +63,4 @@ const init = passport => {
 }
 
 module.exports = init
+

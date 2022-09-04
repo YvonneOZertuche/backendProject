@@ -10,8 +10,8 @@ router.use(express.urlencoded({extended: true}))
 // let feedbackObjs = require("../data/feedbackObjs.json")
 
 
-router.get('/form', (req, res) => {
-    res.render(`index`, {
+router.get('/newBlogEntry', (req, res) => {
+    res.render(`newBlogEntry`, {
         // "feedbackObjs":feedbackObjs
     })
 })
@@ -33,7 +33,7 @@ router.post('/newBlogEntry', async (req, res) => {
     await db.blogs.create({title:blogTitle, content:blogEntry})
     
     
-    res.redirect('/form');
+    res.redirect('/newBlogEntry');
 })
 
 //get route - to get all the blog posts

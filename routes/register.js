@@ -24,9 +24,9 @@ router.post('/register', async (req, res) => {
       errors.push({ message: 'Please enter all fields.' })
     }
 
-    if (password.length < 6) {
-      errors.push({ message: 'Password should be at least 6 characters long.' })
-    }
+    // if (password.length < 6) {
+    //   errors.push({ message: 'Password should be at least 6 characters long.' })
+    // }
 
     if (password != password2) {
       errors.push({ message: 'Passwords do not match' })
@@ -49,7 +49,7 @@ router.post('/register', async (req, res) => {
     
     })
     }
-    res.redirect('/login')  
+    res.redirect('/blogs')  
 
   }catch (error) {
     console.log(error)

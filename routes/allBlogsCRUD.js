@@ -8,13 +8,16 @@ router.use(express.json())
 router.use(express.urlencoded({extended: true}))
 
 //NOT WORKING - display individual blogs on index page
-// router.get('/index', async (req, res) => {
-//     let {id} = req.params
-//     console.log(id)
-//     let data = await db.blogs.findOne({where: {id:id}});
-    
-//     res.render("index", {data: data})
-// })
+router.get('/index', async (req, res) => {
+    try{
+    console.log(db.blogs)
+    let data = await db.blogs.findOne({where: {id:id}});
+    res.render("index", {data:data})
+    }
+    catch(error){
+        console.log(error)
+    }
+})
 
 //new blog entry route
 router.get('/newBlogEntry', (req, res) => {
@@ -35,7 +38,7 @@ router.post('/newBlogEntry', async (req, res) => {
     console.log(db.blogs)
     await db.blogs.create({title:blogTitle, content:blogEntry})
     
-    res.redirect('/newBlogEntry');
+    res.redirect('/blogs');
 })
 
 //get all the blog posts

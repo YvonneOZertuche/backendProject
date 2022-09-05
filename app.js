@@ -6,7 +6,7 @@ require('./auth/passport-config')(passport)
 const cookieSession = require('cookie-session')
 const { pool } = require('./dbconfig')
 require('dotenv').config
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
 
 app.use(express.static('public'))
 app.use(helmet())
@@ -36,6 +36,7 @@ app.use(require('./routes/dashboard'))
 app.use(require('./routes/blogs'))
 
 app.use(express.static('./public'))
+app.use(express.static(__dirname + '/public/'));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)

@@ -14,13 +14,7 @@
 	</head>
 	<body class="is-preload">
 
-    <ul>
-      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
-        <li> <%= error.message %> </li>    
-      <% }) %>
-      <% } %>
-  
-    </ul>
+   
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -38,6 +32,8 @@
 							<li class="active"><a href="/register">REGISTER</a></li>
               <li><a href="/login">LOGIN</a></li>
               <li><a href="/newBlogEntry">NEW BLOG POST</a></li>
+							<li><a href="/logout">LOGOUT</a></li>
+
 						</ul>
 						<ul class="icons">
 							<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -50,7 +46,7 @@
 				<!-- Main -->
 					<!-- <div id="main">
 
-						<!-- Post -->
+						<!-Post -->
 							<!-- <section class="post">
 								<header class="major">
 									<span class="date">April 25, 2017</span>

@@ -35,10 +35,38 @@ router.post('/newBlogEntry', async (req, res) => {
     console.log(`${blogTitle}, ${blogEntry}`)
 
     //I'll need to add another variable when Yvonne is ready to reference the userID via cookies
-    console.log(db.blogs)
-    await db.blogs.create({title:blogTitle, content:blogEntry})
+    console.log(req.session)
+    await db.blogs.create({title:blogTitle, content:blogEntry, userID:req.session.passport.user})
     
+
+    res.redirect('/dashboard');
+})
+
+//get all USER blog posts
+router.get('/dashboard', async (req, res) => {
+ try{
+    let data = await db.blogs.findAll({
+        where: { userID: req.session.passport.user}
+    })
+    res.render('dashboard', {
+        data: data
+    })
+ }
+catch(error){
+    console.log(error)
+}    
+
+
+  // console.log(db.blogs)
+  // let data = await db.blogs.findOne({where: {id:id}});
+  // res.render("index", {data:data})
+  // }
+  // catch(error){
+  //     console.log(error)
+  // }
+
     res.redirect('/blogs');
+
 })
 
 //get all the blog posts
@@ -75,6 +103,16 @@ router.post('/blogDelete', async (req, res) => {
     await db.blogs.destroy({where: {id:blogID}})
     res.redirect('/blogs');
 })
+
+router.get('/displayuserblog', async (req, res) => {
+  let data = await db.blogs.findAll({
+    where: { userID: req.session.passport.user }
+  })
+  res.render(`userBlogs`, {
+    data: data
+  })
+})
+
 
 
 module.exports = router;

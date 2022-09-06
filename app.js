@@ -4,7 +4,7 @@ const helmet = require('helmet')
 const passport = require('passport')
 require('./auth/passport-config')(passport)
 const cookieSession = require('cookie-session')
-const { pool } = require('./dbconfig')
+const { pool } = require('./dbConfig')
 require('dotenv').config
 const PORT = process.env.PORT || 8080
 

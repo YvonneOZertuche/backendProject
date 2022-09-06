@@ -38,6 +38,7 @@ router.post('/newBlogEntry', async (req, res) => {
     console.log(req.session)
     await db.blogs.create({title:blogTitle, content:blogEntry, userID:req.session.passport.user})
     
+
     res.redirect('/dashboard');
 })
 
@@ -63,6 +64,9 @@ catch(error){
   // catch(error){
   //     console.log(error)
   // }
+
+    res.redirect('/blogs');
+
 })
 
 //get all the blog posts

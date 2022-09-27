@@ -7,7 +7,7 @@ const cookieSession = require('cookie-session')
 
 const { pool } = require('./dbConfig')
 require('dotenv').config
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 
 app.use(express.static('public'))
